@@ -14,17 +14,21 @@ public class Enemypatrol : MonoBehaviour
     {
         if (isRideDirection)
         {
-            rigidbody.AddForce(Vector2.right * Time.deltaTime * speed, ForceMode2D.Impulse);
-            if (transform.position.x>rightBorder.transform.position.x)
+            rigidbody.AddForce(Vector2.right  * speed, ForceMode2D.Impulse);
+            if (transform.position.x > rightBorder.transform.position.x)
             {
+                int V = 0;
+                rigidbody.velocity = Vector2.left * V;
                 isRideDirection = false;
             }
         }
         else
         {
-            rigidbody.AddForce(Vector2.left * Time.deltaTime * speed, ForceMode2D.Impulse);
+            rigidbody.AddForce(Vector2.left  * speed, ForceMode2D.Impulse);
             if (transform.position.x < leftBorder.transform.position.x)
             {
+                int V = 0;
+                rigidbody.velocity = Vector2.right * V;
                 isRideDirection = true;
             }
         }
