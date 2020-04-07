@@ -14,9 +14,12 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetHealth(int health)
+    public int maxhealth; //задаём максимальное здоровье
+    public void SetHealth(int bonushealth)
     {
-        this.health += health; //this необходим, чтоб увеличить основную переменную, а не ту, что внутри метода
+        health += bonushealth; //this необходим, чтоб увеличить основную переменную, а не ту, что внутри метода
+        if (health > maxhealth)
+            health = maxhealth;
 
     }
 }
