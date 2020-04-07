@@ -13,18 +13,7 @@ public class Player : MonoBehaviour
 
 
    
-    private void Start()
-    {
-        UnityEngine.Color[] colors = new UnityEngine.Color[3];
-        float t = 0.48f;
-        colors[0] = Color.red;
-        colors[1] = Color.Lerp(Color.red, Color.white, t);
-        colors[2] = Color.yellow;
-        for (int i = 0; i < 15; i++)
-        {
-            renderers[i].color = colors[Random.Range(0, 3)];
-        }
-    }
+    
     // Update is called once per frame
     void Update()
     {
