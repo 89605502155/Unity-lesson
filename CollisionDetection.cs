@@ -8,14 +8,12 @@ public class CollisionDetection : MonoBehaviour
     public string collisionTag;
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.name == collisionTag)
+        if (col.gameObject.CompareTag(collisionTag))
         {
-            Debug.Log("с правильным");
+            Health health = col.gameObject.GetComponent<Health>();
+            health.TakeHit(damage);
         }
-        else
-        {
-            Debug.Log("с неправильным");
-        }
+        
         
     }
 }

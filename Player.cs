@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public float minimalHeight;
     public bool isCheatMode;
     public SpriteRenderer[] renderers;
+    public GroundDetection GroundDetection;
 
 
    
@@ -25,11 +26,11 @@ public class Player : MonoBehaviour
         {
             transform.Translate(Vector2.left * Time.deltaTime * speed);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && GroundDetection.isGraund)
         {
             rigidbody.AddForce(Vector2.up * speedup, ForceMode2D.Impulse);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && GroundDetection.isGraund)
         {
             rigidbody.AddForce(Vector2.up * speedup, ForceMode2D.Impulse);
         }

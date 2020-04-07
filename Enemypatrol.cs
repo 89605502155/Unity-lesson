@@ -9,10 +9,15 @@ public class Enemypatrol : MonoBehaviour
     public bool isRideDirection;
     public float speed;
     public Rigidbody2D rigidbody;
+    public GroundDetection groundDetection;
 
+    private void Start()
+    {
+        groundDetection = GetComponent<GroundDetection>();
+    }
     private void Update()
     {
-        if (isRideDirection)
+        if (isRideDirection && groundDetection.isGraund)
         {
             rigidbody.AddForce(Vector2.right  * speed, ForceMode2D.Impulse);
             if (transform.position.x > rightBorder.transform.position.x)
@@ -22,7 +27,7 @@ public class Enemypatrol : MonoBehaviour
                 isRideDirection = false;
             }
         }
-        else
+        else if (groundDetection.isGraund)
         {
             rigidbody.AddForce(Vector2.left  * speed, ForceMode2D.Impulse);
             if (transform.position.x < leftBorder.transform.position.x)
